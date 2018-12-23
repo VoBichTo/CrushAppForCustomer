@@ -126,6 +126,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
         mSettings = findViewById(R.id.settings);
         mHistory = findViewById(R.id.history);
 
+
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,22 +193,23 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
             }
         });
 
-//        PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
-//                getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
-//
-//        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-//            @Override
-//            public void onPlaceSelected(Place place) {
-//                // TODO: Get info about the selected place.
-//                destination = place.getName().toString();
-//                destinationLatLng = place.getLatLng();
-//            }
-//
-//            @Override
-//            public void onError(Status status) {
-//                // TODO: Handle the error.
-//            }
-//        });
+        PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+
+        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                // TODO: Get info about the selected place.
+                destination = place.getName().toString();
+                destinationLatLng = place.getLatLng();
+            }
+
+            @Override
+            public void onError(Status status) {
+                // TODO: Handle the error.
+        Log.d("AAA" ,"An error occurred: " + status);
+            }
+        });
 
     }
 
@@ -337,7 +339,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
 
                     float distance = loc1.distanceTo(loc2);
 
-                    if (distance < 1000) {
+                    if (distance < 100) {
                         mRequest.setText("Driver's Here");
                     } else {
                         mRequest.setText("Driver Found: " + String.valueOf(distance));
@@ -501,6 +503,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(18));
         }
+
     }
 
     @Override
