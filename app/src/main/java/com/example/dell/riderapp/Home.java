@@ -374,13 +374,13 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
                     if (dataSnapshot.child("name") != null) {
-                        mDriverName.setText(dataSnapshot.child("Tên").getValue().toString());
+                        mDriverName.setText(dataSnapshot.child("name").getValue().toString());
                     }
                     if (dataSnapshot.child("phone") != null) {
-                        mDriverPhone.setText(dataSnapshot.child("SDT").getValue().toString());
+                        mDriverPhone.setText(dataSnapshot.child("phone").getValue().toString());
                     }
                     if (dataSnapshot.child("car") != null) {
-                        mDriverCar.setText(dataSnapshot.child("Xe").getValue().toString());
+                        mDriverCar.setText(dataSnapshot.child("car").getValue().toString());
                     }
 //                    if (dataSnapshot.child("profileImageUrl") != null) {
 //                        Glide.with(getApplication()).load(dataSnapshot.child("profileImageUrl").getValue().toString()).into(mDriverProfileImage);
