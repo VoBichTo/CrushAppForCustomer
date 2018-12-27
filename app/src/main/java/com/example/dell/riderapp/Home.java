@@ -382,9 +382,9 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
                     if (dataSnapshot.child("car") != null) {
                         mDriverCar.setText(dataSnapshot.child("car").getValue().toString());
                     }
-                    if (dataSnapshot.child("profileImageUrl") != null) {
-                        Glide.with(getApplication()).load(dataSnapshot.child("profileImageUrl").getValue().toString()).into(mDriverProfileImage);
-                    }
+//                    if (dataSnapshot.child("profileImageUrl") != null) {
+//                        Glide.with(getApplication()).load(dataSnapshot.child("profileImageUrl").getValue().toString()).into(mDriverProfileImage);
+//                    }
 
                     int ratingSum = 0;
                     float ratingsTotal = 0;
