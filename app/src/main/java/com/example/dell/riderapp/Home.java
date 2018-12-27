@@ -166,9 +166,9 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
                     geoFire.setLocation(userId, new GeoLocation(mLastLocation.getLatitude(), mLastLocation.getLongitude()));
 
                     pickupLocation = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
-                    pickupMarker = mMap.addMarker(new MarkerOptions().position(pickupLocation).title("Pickup Here").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_person_pickup)));
+                    pickupMarker = mMap.addMarker(new MarkerOptions().position(pickupLocation).title("Bạn đang ở đây").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_person_pickup)));
 
-                    mRequest.setText("Getting your Driver....");
+                    mRequest.setText("Tìm tài xế....");
 
                     getClosestDriver();
                 }
@@ -256,7 +256,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
                                     getDriverLocation();
                                     getDriverInfo();
                                     getHasRideEnded();
-                                    mRequest.setText("Looking for Driver Location....");
+                                    mRequest.setText("Đang tìm tài xế....");
                                 }
                             }
                         }
@@ -340,9 +340,9 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
                     float distance = loc1.distanceTo(loc2);
 
                     if (distance < 100) {
-                        mRequest.setText("Driver's Here");
+                        mRequest.setText("Tài xế đã đến");
                     } else {
-                        mRequest.setText("Driver Found: " + String.valueOf(distance));
+                        mRequest.setText("Tài xế cách: " + String.valueOf(distance));
                     }
 
 
@@ -374,13 +374,13 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0) {
                     if (dataSnapshot.child("name") != null) {
-                        mDriverName.setText(dataSnapshot.child("name").getValue().toString());
+                        mDriverName.setText(dataSnapshot.child("Tên").getValue().toString());
                     }
                     if (dataSnapshot.child("phone") != null) {
-                        mDriverPhone.setText(dataSnapshot.child("phone").getValue().toString());
+                        mDriverPhone.setText(dataSnapshot.child("SDT").getValue().toString());
                     }
                     if (dataSnapshot.child("car") != null) {
-                        mDriverCar.setText(dataSnapshot.child("car").getValue().toString());
+                        mDriverCar.setText(dataSnapshot.child("Xe").getValue().toString());
                     }
 //                    if (dataSnapshot.child("profileImageUrl") != null) {
 //                        Glide.with(getApplication()).load(dataSnapshot.child("profileImageUrl").getValue().toString()).into(mDriverProfileImage);
@@ -453,12 +453,12 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
         if (mDriverMarker != null) {
             mDriverMarker.remove();
         }
-        mRequest.setText("call Uber");
+        mRequest.setText("Gọi");
 
         mDriverInfo.setVisibility(View.GONE);
         mDriverName.setText("");
         mDriverPhone.setText("");
-        mDriverCar.setText("Destination: --");
+        mDriverCar.setText("Khoảng cách: --");
         mDriverProfileImage.setImageResource(R.drawable.ic_account_circle_black_24dp);
     }
 
