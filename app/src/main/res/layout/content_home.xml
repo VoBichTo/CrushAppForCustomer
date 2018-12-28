@@ -135,19 +135,19 @@
                     android:id="@+id/UberX"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="UberX" />
+                    android:text="CrushX" />
 
                 <RadioButton
                     android:id="@+id/UberBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="UberBlack" />
+                    android:text="CrushBlack" />
 
                 <RadioButton
                     android:id="@+id/UberXl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="UberVIP" />
+                    android:text="CrushVIP" />
             </RadioGroup>
 
             <Button

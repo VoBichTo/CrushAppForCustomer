@@ -501,7 +501,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback, Google
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(18));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(20));
         }
 
     }
